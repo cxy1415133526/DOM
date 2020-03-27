@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 1000px;
+            height: 1000px;
+            margin: 20px auto;
+        }
+
+        .input1 {
+            width: 200px;
+            height: 50px;
+            border-radius: 3px;
+            font-size: 22px;
+        }
+
+        .input2 {
+            position: relative;
+            display: block;
+            width: 200px;
+            height: 50px;
+            border-radius: 3px;
+            font-size: 22px;
+        }
+        .box2{
+            position: relative;
+            width: 200px;
+            height: 200px;
+        }
+        .input3 {
+            position: relative;
+            width: 30px;
+            height: 30px;
+
+        }
+
+        .box2 span {
+           
+
+            font-size: 22px;
+        }
+
+        .box1 span {
+            font-size: 22px;
+        }
+
+        .box3 {
+            position: absolute;
+            top: -47px;
+            left: 38px;
+            width: 200px;
+            height: 50px;
+            line-height: 20px;
+             
+           
+        }
+        p{
+            display:block;
+            color:transparent;
+            margin-top: 6px;
+            line-height: 18px;
+           
+           
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 制作一个效果：鼠标触碰复选框时，显示“为了信息安全，请勿在网吧或公用电脑上使用此功能！”字样的提示盒子。鼠标离开时，盒子隐藏。 -->
+    <div class="box">
+        <div class="box1">
+            <input class="input1" type="text" placeholder='邮箱账号或手机号'>@
+            <select name="sel">
+                <option value="163.com">163.com</option>
+                <option value="126.com">126.com</option>
+            </select>
+        </div><br>
+
+        <input class="input2" type="password" placeholder='密码'><br>
+
+        <div class="box2">
+           <a href=""> <input class="input3" type="checkbox"></a><span>十天内免登陆</span>
+            <div class="box3">
+                <p>为了信息安全，请勿在网吧或公用电脑上使用此功能！</p>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        var input3=document.querySelector('.box2 .input3');
+        var box3=document.querySelector('.box2 .box3 p');
+        input3.onmouseenter=function(){
+            box3.style.color='orange';
+            box3.style.backgroundColor='rgba(255, 166, 0, 0.178)';
+            box3.style.border='rgba(255, 166, 0, 0.486)';
+        }
+        input3.onmouseleave=function(){
+            box3.style.color='transparent';
+            box3.style.backgroundColor='transparent';
+            box3.style.border='transparent';
+        }
+    </script>
+</body>
+
+</html>

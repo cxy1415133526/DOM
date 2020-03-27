@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+            float: left;
+            margin-left: 10px;
+        }
+        #box{
+            /*清浮动*/
+            /* overflow: hidden; */
+            /* 或者加宽高 */
+            width: 1000px;
+            height: 130px;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn1">按我让所有盒子变黄</button>
+    <button id="btn2">按我让小明变红</button>
+    <button id="btn3">按我让小明的父亲变粉</button>
+    <button id="btn4">按我让小明的前一个兄弟变蓝</button>
+    <button id="btn5">按我让小明的后一个兄弟变绿</button>
+    <button id="btn6">按我让最后一个变紫</button>
+    <button id="btn7">按我让第一个变橘色</button>
+    <div id="box">
+        <p></p>
+        <p></p>
+        <p class="xiaoming">小明</p>
+        <p></p>
+    </div>
+    <script>
+        var box=document.querySelector('#box');
+        // var xiaoming=document.querySelector('.xiaoming');
+        var xiaoming=document.getElementsByClassName('xiaoming');
+       
+        var btn1=document.getElementById('btn1');
+        var btn2=document.getElementById('btn2');
+        var btn3=document.getElementById('btn3');
+        var btn4=document.getElementById('btn4');
+        var btn5=document.getElementById('btn5');
+        var btn6=document.getElementById('btn6');
+        var btn7=document.getElementById('btn7');
+        btn1.onclick=function(){
+            //得到box的所有子节点
+        var childs=box.childNodes;
+            //遍历得到的子数组
+        for(var i=0;i<childs.length;i++){
+            //找元素节点（nodeType==1），去掉文本节点（nodeType==3）
+            if(childs[i].nodeType==1){
+                //让子节点变色
+                childs[i].style.background='yellow';
+            }
+        }
+    }
+    btn2.onclick=function(){
+        
+        xiaoming[0].style.backgroundColor='red';
+    }
+    btn3.onclick=function(){
+       //通过id或选择器querySelector获得元素
+        // xiaoming.parentNode.style.backgroundColor='pink';
+       //通过类名或选择器querySelectorAll或者getElementByTagName获得元素,是数组要写for循环遍历数组
+        xiaoming[0].parentNode.style.backgroundColor='pink';
+    }
+    btn4.onclick=function(){
+        
+        xiaoming[0].previousElementSibling.style.backgroundColor='blue';
+    }
+    btn5.onclick=function(){
+        
+        xiaoming[0].nextElementSibling.style.backgroundColor='green';
+    }
+    btn6.onclick=function(){
+        
+        box.lastElementChild.style.backgroundColor='purple';
+    }
+    btn7.onclick=function(){
+        
+        box.firstElementChild.style.backgroundColor='orange';
+    }
+    </script>
+</body>
+</html>
