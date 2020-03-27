@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+          
+            width: 1000px;
+            height: 1000px;
+        }
+
+        .box1 {
+            width: 200px;
+            height: 100px;
+        }
+        .pra{            
+            top: 100px;
+            left: 50px;
+            width: 100px;
+            height: 100px;
+         
+            margin-left: 100px;
+        }
+        p{  
+            float: left;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">让box变红</button>
+    <button id="btn1">让pra变黄</button>
+    <button id="btn2">让p变绿</button>
+    <button id="btn3">让box1变蓝</button>
+    <div id="box">
+        <div class="box1"></div>
+        <p></p>
+        <p class="pra"></p>
+        <p class="pra"></p>
+        <p></p>
+    </div>
+    <script>
+        //第一种通过id得到元素
+        var box = document.getElementById('box');
+        var btn1 = document.getElementById('btn1');
+
+        //第二种通过querySelector
+        var btn = document.querySelector('#btn');
+        var btn2 = document.querySelector('#btn2');
+        var btn3 = document.querySelector('#btn3');
+               
+        // //第三种通过选择器querySelectorAll
+        var pra = document.querySelectorAll('#box p.pra');
+
+        //第四种通过标签名标签
+        var p = document.getElementsByTagName('p');
+
+        //第五种通过类名
+        var box1 = document.getElementsByClassName('box1');
+        
+
+        // alert(pra.length);
+        btn.onclick = function () {
+            box.style.background = 'red';
+        }
+        
+        
+        btn1.onclick = function () {
+            for (var i = 0; i < pra.length; i++) {
+                pra[i].style.background = 'yellow';
+            }
+        }
+        btn2.onclick = function () {
+            for (var i = 0; i < p.length; i++) {
+                p[i].style.background = 'green';
+            }
+        }
+        btn3.onclick = function () {
+            for (var i = 0; i < box1.length; i++) {
+                box1[i].style.background = 'blue';
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
