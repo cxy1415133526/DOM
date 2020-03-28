@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box1"></div>
+    <div id="box2"></div>
+
+    <script>
+        var box1=document.querySelector('#box1');
+        var box2=document.querySelector('#box2');
+        //通过更改HTML元素innerHTML属性和innerText属性来改变它内部文本。
+        // box1.innerHTML='你好，中国！';
+        // box2.innerText='你好，中国！';
+        //两者的区别，innerHTML属性会将“标签字符串”真正的解析为HTML标签。
+        // 而innerText属性不能，它会把HTML标签的内容文本写在div里
+        box1.innerHTML='<ul><li>苹果</li><ul>';
+        box2.innerText='<ul><li>苹果</li><ul>';
+    </script>
+</body>
+</html>

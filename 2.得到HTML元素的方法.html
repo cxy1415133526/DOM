@@ -7,32 +7,38 @@
     <title>Document</title>
     <style>
         .box {
-          
+
             width: 1000px;
             height: 1000px;
+            border: 1px solid #000;
         }
 
         .box1 {
             width: 200px;
             height: 100px;
+            border: 1px solid #000;
         }
-        .pra{            
+
+        .pra {
             top: 100px;
             left: 50px;
             width: 100px;
             height: 100px;
-         
+
             margin-left: 100px;
         }
-        p{  
+
+        p {
             float: left;
             width: 100px;
             height: 100px;
+            border: 1px solid #000;
         }
     </style>
 </head>
 
 <body>
+    <button id="btn4">让所有的盒子变紫</button>
     <button id="btn">让box变红</button>
     <button id="btn1">让pra变黄</button>
     <button id="btn2">让p变绿</button>
@@ -53,7 +59,8 @@
         var btn = document.querySelector('#btn');
         var btn2 = document.querySelector('#btn2');
         var btn3 = document.querySelector('#btn3');
-               
+        var btn4 = document.querySelector('#btn4');
+
         // //第三种通过选择器querySelectorAll
         var pra = document.querySelectorAll('#box p.pra');
 
@@ -62,14 +69,14 @@
 
         //第五种通过类名
         var box1 = document.getElementsByClassName('box1');
-        
+
 
         // alert(pra.length);
         btn.onclick = function () {
             box.style.background = 'red';
         }
-        
-        
+
+
         btn1.onclick = function () {
             for (var i = 0; i < pra.length; i++) {
                 pra[i].style.background = 'yellow';
@@ -85,7 +92,14 @@
                 box1[i].style.background = 'blue';
             }
         }
-
+        btn4.onclick = function () {
+            var childNodes = box.childNodes;
+            for (var i = 0; i < childNodes.length; i++) {
+                if (childNodes[i].nodeType == 1) {
+                    childNodes[i].style.background = 'purple';
+                }
+            }
+        }
 
     </script>
 </body>
