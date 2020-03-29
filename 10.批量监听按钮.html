@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">按我</button>
+    <button id="btn">按我</button>
+    <button id="btn">按我</button>
+    <button id="btn">按我</button>
+    <button id="btn">按我</button>
+    <button id="btn">按我</button>
+    <button id="btn">按我</button>
+    <button id="btn">按我</button>
+    <button id="btn">按我</button>
+    <button id="btn">按我</button>
+    <script>
+        var buttons=document.getElementsByTagName('button');
+        for(var i=0;i<buttons.length;i++){
+            //解决序号问题采用IIFE（立即执行匿名函数）(function(){})();将函数放入圆括号里，形成闭包
+            (function(i){
+                buttons[i].onclick=function(){
+                    alert(i);
+                }
+            })(i);
+        }
+    </script>
+</body>
+</html>

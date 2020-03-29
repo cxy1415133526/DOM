@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #p2{
+            font-size: 26px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" id="btn1" value="字号增加">
+    <input type="button" id="btn2" value="字号减小">
+    <p id="p1">当前的字号26</p>
+    <p id="p2">大家一定要加油，不要放弃！</p>
+
+    <script>
+        var btn1=document.getElementById('btn1');
+        var btn2=document.getElementById('btn2');
+        var p1=document.getElementById('p1');
+        var p2=document.getElementById('p2');
+        var fsize=parseInt(getComputedStyle(p2).fontSize);
+        btn1.onclick=function(){
+           
+            fsize+=2;
+            p1.innerText=`当前的字号${fsize}`
+            p2.style.fontSize=fsize+'px';
+            if(fsize>=30){
+                btn1.disabled='disabled';
+            }{
+                btn2.disabled='';
+            }            
+        }
+        btn2.onclick=function(){
+           
+            fsize-=2;
+            p1.innerText=`当前的字号${fsize}`
+            p2.style.fontSize=fsize+'px';
+            if(fsize<=20){
+                btn2.disabled='disabled';
+            }else{
+                btn1.disabled='';
+            }            
+        }
+    </script>
+</body>
+
+</html>

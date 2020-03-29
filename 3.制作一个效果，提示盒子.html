@@ -69,6 +69,9 @@
            
            
         }
+        #mylabel{
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -86,7 +89,7 @@
         <input class="input2" type="password" placeholder='密码'><br>
 
         <div class="box2">
-           <a href=""> <input class="input3" type="checkbox"></a><span>十天内免登陆</span>
+           <label id="mylabel"><input class="input3" type="checkbox"><span>十天内免登陆</span></label>>
             <div class="box3">
                 <p>为了信息安全，请勿在网吧或公用电脑上使用此功能！</p>
             </div>
@@ -94,14 +97,14 @@
 
     </div>
     <script>
-        var input3=document.querySelector('.box2 .input3');
+        var mylabel=document.querySelector('.box2 #mylabel');
         var box3=document.querySelector('.box2 .box3 p');
-        input3.onmouseenter=function(){
+            mylabel.onmouseenter=function(){
             box3.style.color='orange';
             box3.style.backgroundColor='rgba(255, 166, 0, 0.178)';
             box3.style.border='rgba(255, 166, 0, 0.486)';
         }
-        input3.onmouseleave=function(){
+            mylabel.onmouseleave=function(){
             box3.style.color='transparent';
             box3.style.backgroundColor='transparent';
             box3.style.border='transparent';

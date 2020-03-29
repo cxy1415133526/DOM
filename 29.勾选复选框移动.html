@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box">
+        <h3>我喜欢的明星</h3>
+        <ul id="list1">
+            <li>
+                <label><input type="checkbox">易烊千玺</label>
+            </li>
+            <li>
+                <label><input type="checkbox">王俊凯</label>
+            </li>
+            <li>
+                <label><input type="checkbox">王一博</label>
+            </li>
+        </ul>
+        <button id="btn1">把选择的改为不喜欢</button>
+        <h3>我不喜欢的明星</h3>
+        <ul id="list2">
+            <li>
+                <label><input type="checkbox">周杰伦</label>
+            </li>
+            <li>
+                <label><input type="checkbox">陈奕迅</label>
+            </li>
+        </ul>
+        <button id="btn2">把选择的改为喜欢</button>
+        <script>
+            var btn1=document.getElementById('btn1');
+            var btn2=document.getElementById('btn2');
+            var list1=document.getElementById('list1');
+            var lis1=list1.getElementsByTagName('li');
+            var list2=document.getElementById('list2');
+            var lis2=list2.getElementsByTagName('li');
+            var checkboxs=document.getElementsByClassName('checkbbox')
+            btn1.onclick=function(){
+                for(var i=0;i<lis1.length;i++){
+                    if(lis1[i].getElementsByTagName('input')[0].checked){
+                        list2.appendChild(lis1[i]);
+                    }
+                } 
+            }
+            btn2.onclick=function(){
+                for(var i=0;i<lis2.length;i++){
+                    if(lis2[i].getElementsByTagName('input')[0].checked){
+                        list1.appendChild(lis2[i]);
+                    }
+                }
+            }
+        </script>
+    
+</body>
+
+</html>

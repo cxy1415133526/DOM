@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 50px;
+            border: 1px solid #000;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="box1" style="width: 30px;"></div>
+    <script>
+        var box=document.querySelector('.box');
+        alert(box.style.width);            //这种写法是得不到，style里的box的高度值得
+
+        //这个只能得到行内样式
+        var box1=document.querySelector('.box1');
+        alert(box1.style.width);                  //30px
+
+        //我们可以使用getComputer.style()来获取style里的样式
+        alert(getComputedStyle(box).width);       //100px
+    </script>
+</body>
+</html>

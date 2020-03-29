@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            overflow: hidden;
+        }
+        #drawer{
+            position: absolute;
+            right: -500px;     /*将盒子隐藏*/
+            top: 0;
+            width: 200px;
+            height: 500px;
+            box-shadow: 0px 0px 12px rgba(0, 0, 0, .5);
+            transition: all .4s ease 0s;  /*过度*/
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">btn</button>
+    <div id="drawer"></div>
+    <script>
+        var btn=document.getElementById('btn');
+        var drawer=document.getElementById('drawer');
+        // btn.onclick=function(){          
+        //     drawer.style.right='0px';
+        // document.onclick=function(){
+        //     drawer.style.right='-500px';  
+        //     //由于事件冒泡，所以点击按钮也属于点击document，事件也能够传播到document上，所以点击btn的时候，也会触发document的点击事件。
+        // }
+
+        //捕获
+        // btn.addEventListener('click',function(){
+        //     drawer.style.right='0px';
+        // },true);
+        // document.addEventListener('click',function(){
+        //     drawer.style.right='-500px';
+        // },true);
+        //
+        // e.stopPropagation()阻止事件传播
+        btn.onclick=function(e){
+            e.stopPropagation();
+            drawer.style.right='0px';
+        }
+        document.onclick=function(e){
+            e.stopPropagation();
+            drawer.style.right='-500px';
+        }
+        //也可以给抽屉也写一个监听事件
+        drawer.onclick=function(e){
+            e.stopPropagation();
+            drawer.style.right='0px';
+        }
+    </script>
+</body>
+</html>

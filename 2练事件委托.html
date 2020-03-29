@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            width: 600px;
+            height: 300px;
+            border: 1px solid #000;
+            list-style: none;
+        }
+
+        li {
+            float: left;
+            width: 80px;
+            height: 80px;
+            border: 1px solid #000;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">按我</button>
+    <ul id="list">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script>
+        var btn=document.getElementById('btn');
+        var list=document.getElementById('list');
+        var lis=list.getElementsByTagName('li');
+        for(var i=0;i<lis.length;i++){
+            (function(i){
+                btn.onclick=function(){
+                lis[i].style.background='none';
+                i--;
+                }
+                lis[i].style.background='red';
+            })(i);
+        }
+    </script>
+</body>
+</html>

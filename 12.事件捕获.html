@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1 {
+            padding: 40px;
+            width: 300px;
+            height: 300px;
+            border: 1px solid #000;
+        }
+
+        #box2 {
+            padding: 40px;
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+
+        }
+
+        #box3 {
+            padding: 40px;
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box1">
+        <div id="box2">
+            <div id="box3">
+                <button id="btn">按我</button>
+            </div>
+        </div>
+    </div>
+    <script>
+         var btn=document.getElementById('btn');
+        var box1=document.getElementById('box1');
+        var box2=document.getElementById('box2');
+        var box3=document.getElementById('box3');
+        //如何避开事假冒泡需要另一个捕获监听addEventListener
+        // 它是从父级到子级
+        btn.addEventListener('click',function(){
+            alert('我是按钮捕获阶段');
+        },true);
+        box1.addEventListener('click',function(){
+            alert('我是box1捕获阶段');
+        },true);
+        box2.addEventListener('click',function(){
+            alert('我是box2捕获阶段')
+        },true);
+        btn.addEventListener('click',function(){
+            alert('我是按钮冒泡阶段');
+        },false);
+        box1.addEventListener('click',function(){
+            alert('我是box1冒泡阶段');
+        },false);
+        box2.addEventListener('click',function(){
+            alert('我是box2冒泡阶段')
+        },false);
+        box3.addEventListener('click',function(){
+            alert('我是box3冒泡阶段')
+        },false);
+        box3.addEventListener('click',function(){
+            alert('我是box3捕获阶段')
+        },true);
+    </script>
+</body>
+
+</html>

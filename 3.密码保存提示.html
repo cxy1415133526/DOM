@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 300px;
+            height: 130px;
+            border: 1px solid #000;
+            position: relative;
+            padding: 10px;
+            margin: 100px auto;
+        }
+        #box p {
+            padding: 10px 0;
+           
+        }
+        #tip{
+            position: absolute;
+            width: 100px;
+            height: 80px;
+            border: 1px solid rgba(238, 135, 1, 0.616);
+            right: 153px;
+            bottom: -10px;
+            background-color: rgba(245, 241, 24, 0.425);
+            border-radius: 6px;
+            padding: 6px;
+            line-height: 17px;
+            display: none;
+           
+        }
+        #mylabel{
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <p>
+            <input type="text">
+        </p>
+        <p>
+            <input type="text">
+        </p>
+        <p>
+            <label id="mylabel"><input type="checkbox">10天免登陆</label>
+        </p>
+        <div id="tip">
+            为了信息安全，请勿在网吧或公用电脑上使用此功能！
+        </div>
+    </div>
+    <script>
+        var mylabel=document.getElementById('mylabel');
+        var tip=document.getElementById('tip');
+        mylabel.onmouseenter=function(){
+            tip.style.display="block";
+        }
+        mylabel.onmouseleave=function(){
+            tip.style.display="none";
+        }
+    </script>
+</body>
+</html>

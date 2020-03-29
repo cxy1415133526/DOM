@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            width: 600px;
+            height: 300px;
+            border: 1px solid #000;
+            list-style: none;
+        }
+
+        li {
+            float: left;
+            width: 80px;
+            height: 80px;
+            border: 1px solid #000;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="list">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <button id="btn">加li</button>
+    <script>
+        var btn=document.getElementById('btn');
+        var list=document.getElementById('list');
+        var lis=list.getElementsByTagName('li');
+        //如果给每个列表项都绑定一个函数，则会大大地消耗内存，也消耗很多性能
+        // 这时我们就需要将它绑定在它的父级，然后执行事件时再去匹配判断目标元素
+        list.onclick=function(e){
+            if(e.target.nodeName.toLowerCase()=='li'){
+                e.target.style.background='red';
+            }
+        }
+        
+        btn.onclick=function(){
+            var li=document.createElement('li');   
+                list.appendChild(li);
+            
+        }
+        
+
+       
+    </script>
+</body>
+
+</html>

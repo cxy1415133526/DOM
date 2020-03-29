@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 400px;
+            border: 1px solid #000;
+        }
+        p{
+            width: 50px;
+            height: 50px;
+            background-color: orange;
+            margin: 10px;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="box1">
+        <h1>我在干什么</h1>
+        <p class="pra">我是段落1</p>
+        <p class="pra">我是段落2</p>
+        <p >我是段落3</p>
+        <p>我是段落4</p>
+    </div>
+    <div id="box2">
+        <p >我是段落3</p>
+        <p>我是段落4</p>
+    </div>
+    <button id="btn">按我复制box1里面的p内容</button>
+    <button id="btn1">按我移动我是段落1、我是段落2到box2</button>
+   <script>
+     var ps=box1.getElementsByTagName('p');
+     
+     var btn=document.getElementById('btn');
+     var btn1=document.getElementById('btn1');
+     var box2=document.getElementById('box2');
+     
+    
+     btn.onclick=function(){
+        for(var i=0;i<ps.length;i++){
+         var clone=ps[i].cloneNode(true);
+         box2.appendChild(clone);
+        }   
+     }
+     btn1.onclick=function(){
+        var p1s=box1.getElementsByClassName('pra');
+        for(var i=0;i<p1s.length;i++){
+        //  box2.appendChild(p1s[i]);
+         box2.insertBefore(p1s[i],box2.firstChild);
+        }
+     }
+   </script>
+   
+</body>
+</html>

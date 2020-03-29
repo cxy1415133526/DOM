@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="kuang">
+    <button id="btn1">按我appendChild</button>
+    <button id="btn2">按我insertBefore</button>
+    <ul id="list"></ul>
+    <!-- 创建新元素 -->
+    <script>
+        btn1.onclick = function () {
+            var li = document.createElement('li');
+            //改变li里的内容与框的值相同
+            li.innerText = kuang.value;   //创建出来的是孤儿节点要加appendChild上树（li要加到list上去）
+            list.appendChild(li);
+            kuang.focus();                //给框添加光标
+        }
+        btn2.onclick=function(){
+            var li=document.createElement('li');
+            li.innerText=kuang.value;
+            list.insertBefore(li,list.firstChild);
+            kuang.focus();
+        }
+    </script>
+</body>
+
+</html>

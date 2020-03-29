@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <input type="text" id="kuang">
+    <button id="btn">添加</button>
+    <ul id="list">
+
+        <li class="lis">苹果 <button>删除</button></li>
+        <li class="lis">西瓜 <button>删除</button></li>
+        <li class="lis">鸭梨 <button>删除</button></li>
+
+
+
+    </ul>
+    <script>
+        var kuang = document.getElementById('kuang');
+        var btn = document.getElementById('btn');
+        var list = document.getElementById('list');
+        var lis = document.getElementsByClassName('lis');
+
+
+        var buttons = list.getElementsByTagName('button');
+      
+            list.onclick = function (e) {
+                if(e.target.nodeName.toLowerCase()=='button'){
+                    list.removeChild(e.target.parentNode);
+                }
+               
+
+            }
+        
+
+
+
+
+        //创建li元素
+        btn.onclick = function () {
+            var li = document.createElement('li');
+            var button = document.createElement('button');
+            //更改li的内容与框里的值一致
+
+            li.innerText = kuang.value;
+            list.appendChild(li);
+            kuang.value = '';
+            kuang.focus();
+            li.appendChild(button);
+            button.innerText = '删除';
+            button.onclick = function () {
+                //删除元素
+                li.parentNode.removeChild(li);
+            }
+        }
+        
+    </script>
+</body>
+
+</html>

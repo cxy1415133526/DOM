@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1,#box2{
+            width: 100px;
+            height: 200px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box1">
+        <p id="pra1">pra1</p>
+        <p id="pra2">pra2</p>
+    </div>
+    <div id="box2">
+        <p id="pra3">pra3</p>
+        <p id="pra4">pra4</p>
+    </div>
+    <script>
+        var box1=document.getElementById('box1');
+        var box2=document.getElementById('box2');
+        var pra1=document.getElementById('pra1');
+        var pra2=document.getElementById('pra2');
+        var pra3=document.getElementById('pra3');
+        var pra4=document.getElementById('pra4');
+        //将pra1移到box2
+        box2.appendChild(pra1);
+        //或者使用insertBefore();将pra3移到box1中
+        box1.insertBefore(pra3,box1.firstChild);
+        //insertBefore(,)里面接收两个参数，前一个是你要插入的元素，后一个参数是（你要插入的那个(父级打点儿firstChild）你将新元素插入哪里
+    </script>
+</body>
+
+</html>
